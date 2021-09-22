@@ -20,12 +20,14 @@
 		out.println(password);%>
 	</p>
 	<p>
-	<b>Resultado</b>
+	<b>Resultado:</b>
 	<% ClienteController cte = new ClienteController();
 		if(cte.consultarUsuario(usuario,password)) {
-			out.println("Usuario y contraseña coinciden!!");
+			out.println("Usuario y contraseña existe!!");
+			String redirectURL = "usuarios.html";
+		    response.sendRedirect(redirectURL);
 		}
-		else out.println("Usuario y contraseña NO coinciden!!");
+		else out.println("Usuario y contraseña NO encontrado!!");
 	%>
 	
 	</p>
